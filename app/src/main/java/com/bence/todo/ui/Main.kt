@@ -1,6 +1,5 @@
 package com.bence.todo.ui
 
-import android.provider.Settings.Global
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,7 +8,6 @@ import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -17,7 +15,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.intPreferencesKey
 import com.bence.todo.R
 import com.bence.todo.viewmodels.MainViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -26,10 +23,9 @@ import com.bence.todo.ui.components.AddToDo
 import com.bence.todo.ui.components.SwipableItem
 import com.bence.todo.ui.theme.ToDoTheme
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-@OptIn(ExperimentalMaterial3Api::class, DelicateCoroutinesApi::class, ExperimentalCoroutinesApi::class)
+@OptIn(DelicateCoroutinesApi::class)
 @Composable
 fun MainView(viewModel: MainViewModel = viewModel()) {
 
@@ -96,7 +92,6 @@ fun MainView(viewModel: MainViewModel = viewModel()) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun TopAppBar(darkTheme: Boolean, onThemeChange: ()->Unit) {
     TopAppBar(

@@ -1,24 +1,19 @@
 package com.bence.todo.ui.components
 
-import android.widget.CalendarView
-import android.widget.DatePicker
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.bence.todo.R
-import java.util.Calendar
 
 data class ToDoData(
     val title: String,
     val content: String
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddToDo(
     state: Boolean,
